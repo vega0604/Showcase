@@ -37,12 +37,13 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    padding: 10px 40px;
+    padding: 1rem 40px;
     position: fixed;
     width: 100%;
 }
 
 #items {
+    margin: 0;
     display: flex;
     gap: 1.5rem;
     list-style: none;
@@ -72,20 +73,17 @@ section {
     justify-content: center;
 }
 
-#landing svg path {
-    fill: white;
+
+#landing img {
+    width: 50%;
+    max-width: 50rem;
+    min-width: 20rem;
 }
 
-#landing svg {
-    scale: 10;
-}
-
-#what svg {
-    scale: 0.6;
-}
-
-#what svg path {
-    fill: white;
+#what img {
+    width: 50%;
+    max-width: 25rem;
+    min-width: 15rem;
 }
 
 /* Scrollbar */
@@ -100,4 +98,79 @@ section {
 ::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.041);
     border-radius: 10px;
+}
+
+/* toggle */
+
+#toggle {
+    height: 25px;
+    width: 2rem;
+    position: fixed;
+    right: 40px;
+    top: 1.5rem;
+    display: none;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+#toggle:hover > div::before {
+    width: 2.5rem;
+}
+
+#toggle:hover > div::after {
+    width: 1.5rem;
+}
+
+#toggle div {
+    position: relative;
+}
+
+#toggle div,
+#toggle div::before,
+#toggle div::after {
+    width: 2rem;
+    height: 5px;
+    background-color: white;
+}
+
+#toggle div::before,
+#toggle div::after {
+    content: '';
+    position: absolute;
+    transition: 0.2s ease-in-out;
+    right: 0rem;
+}
+
+#toggle div::before {
+    top: -10px;
+}
+
+#toggle div::after {
+    top: 10px;
+}
+
+
+@media (width < 590px){
+    nav {
+        padding-top: 1.4rem;
+    }
+
+    #items {
+        flex-flow: column nowrap;
+        position: fixed;
+        bottom: -10rem;
+        right: -10rem;
+        opacity: 0;
+        transition: 1s ease-in-out;
+    }
+
+    #toggle {
+        display: flex;
+    }
+
+    .active {
+        bottom: 2rem !important;
+        right: 40px !important;
+        opacity: 1 !important;
+    }
 }
