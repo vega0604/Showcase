@@ -38,7 +38,7 @@ nav {
     align-items: center;
 
     padding: 10px 40px;
-    position: absolute;
+    position: fixed;
     width: 100%;
 }
 
@@ -63,6 +63,41 @@ nav {
     box-shadow: 0 2px 0 var(--fg);
 }
 
+/* Sections */
+
 section {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#landing svg path {
+    fill: white;
+}
+
+#landing svg {
+    scale: 10;
+}
+
+#what svg {
+    scale: 0.6;
+}
+
+#what svg path {
+    fill: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.041);
+    border-radius: 10px;
 }
