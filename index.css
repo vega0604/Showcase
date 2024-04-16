@@ -30,6 +30,29 @@ h1 {
     font-size: 30px;
 }
 
+/* Footer */
+
+footer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #1b1b1b;
+}
+
+footer a {
+    color: var(--fg);
+    text-decoration: none;
+    position: relative;
+    transition: 0.1s ease-in-out;
+}
+
+footer a:hover {
+    top: -1px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
 /* Navbar */
 nav {
     box-sizing: border-box;
@@ -76,14 +99,26 @@ section {
 
 #landing img {
     width: 50%;
-    max-width: 50rem;
+    max-width: 55rem;
     min-width: 20rem;
 }
 
 #what img {
     width: 50%;
-    max-width: 25rem;
-    min-width: 15rem;
+    max-width: 35rem;
+    min-width: 20rem;
+}
+
+#snakes img {
+    width: 50%;
+    max-width: 30rem;
+    min-width: 20rem;
+}
+
+#significance img {
+    width: 50%;
+    max-width: 50rem;
+    min-width: 22rem;
 }
 
 /* Scrollbar */
@@ -111,6 +146,7 @@ section {
     display: none;
     flex-flow: column nowrap;
     justify-content: center;
+    z-index: 999;
 }
 
 #toggle:hover > div::before {
@@ -130,7 +166,8 @@ section {
 #toggle div::after {
     width: 2rem;
     height: 5px;
-    background-color: white;
+    background-color: var(--fg);
+    transition: background-color 0.2s ease-in-out;
 }
 
 #toggle div::before,
@@ -150,18 +187,35 @@ section {
 }
 
 
-@media (width < 590px){
+
+@media (width < 670px){
     nav {
         padding-top: 1.4rem;
     }
 
     #items {
+        height: 100%;
+        width: 8rem;
         flex-flow: column nowrap;
         position: fixed;
-        bottom: -10rem;
         right: -10rem;
+        top: 0;
         opacity: 0;
-        transition: 1s ease-in-out;
+        transition: 0.2s ease-in-out;
+        justify-content: end;
+        align-items: center;
+        padding: 2rem 0;
+        box-sizing: border-box;
+        background-color: var(--fg);
+    }
+
+    .item a {
+        color: var(--bg);
+        box-shadow: -100px 2px 0 var(--bg);
+    }
+
+    .item a:hover {
+        box-shadow: 0 2px 0 var(--bg);
     }
 
     #toggle {
@@ -169,8 +223,13 @@ section {
     }
 
     .active {
-        bottom: 2rem !important;
-        right: 40px !important;
+        right: 0 !important;
         opacity: 1 !important;
+    }
+
+    .activeToggle div,
+    .activeToggle div::before,
+    .activeToggle div::after {
+        background-color: var(--bg) !important;
     }
 }

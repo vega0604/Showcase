@@ -6,8 +6,10 @@ let active = false;
 let clickHandler = () => {
     if (!active){
         list.setAttribute('class', 'active');
+        toggle.setAttribute('class', 'activeToggle');
     } else {
         list.setAttribute('class', ' ');
+        toggle.setAttribute('class', ' ');
     }
 
     active = !active;
